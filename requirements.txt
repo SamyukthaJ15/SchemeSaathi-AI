@@ -1,0 +1,10 @@
+streamlit>=1.40
+pydantic>=2.5
+google-genai>=1.0
+gTTS>=2.5
+python-dotenv>=1.0
+requests>=2.31
+Pillow>=10.0
+pypdf>=4.0
+# Optional offline-style fallback for speech-to-text (Gemini is used first):
+# SpeechRecognition>=3.10
