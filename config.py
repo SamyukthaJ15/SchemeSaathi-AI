@@ -13,8 +13,19 @@ else:
     load_dotenv()
 
 
+
 def _env(name: str, default: str = "") -> str:
-    return (os.getenv(name) or default).strip()
+    value = os.getenv(name)
+
+    if not value:
+        try:
+            import streamlit as st
+            value = st.secrets.get(name, default)
+        except Exception:
+            value = default
+
+    return str(value or default).strip()
+
 
 
 GEMINI_API_KEY = _env("GEMINI_API_KEY")
